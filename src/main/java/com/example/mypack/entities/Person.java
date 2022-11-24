@@ -3,7 +3,7 @@ package com.example.mypack.entities;
 import jakarta.persistence.*;
 
 @MappedSuperclass
-    public class Person {
+    abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
@@ -13,5 +13,6 @@ import jakarta.persistence.*;
     protected String email;
     @Column(name = "passward",nullable = false)
     protected String passward;
+
 
 }

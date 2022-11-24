@@ -2,9 +2,11 @@ package com.example.mypack.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "center")
-public class Center {
+public class Center implements Serializable {
     @Id
     private Integer id;
     @Basic
@@ -15,7 +17,9 @@ public class Center {
     private String title;
     @OneToOne(mappedBy = "center")
     private Manager manager;
-
+    @OneToOne
+    @JoinColumn(name = "villeId", referencedColumnName = "id")
+    private Ville ville;
     public Integer getId()
     {
         return this.id;

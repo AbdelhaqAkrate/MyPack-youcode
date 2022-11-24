@@ -1,20 +1,11 @@
 package com.example.mypack.entities;
 
-import jakarta.persistence.*;
-
-import java.io.Serializable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "manager")
-public class Manager extends Person implements Serializable {
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idCenter", referencedColumnName = "id")
-    private Center center;
-
-    public Center getCenter() {
-        return center;
-    }
-
+@Table(name = "client")
+public class Client extends Person{
     public Integer getId()
     {
         return this.id;
@@ -46,12 +37,5 @@ public class Manager extends Person implements Serializable {
     public void setPassward(String passward)
     {
         this.passward = passward;
-    }
-    public Center getCenterId()
-    {
-        return this.center;
-    }
-    public void setCenter(Center center) {
-        this.center = center;
     }
 }

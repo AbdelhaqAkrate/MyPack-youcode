@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="postgres" persistenceXmlPath="src/main/resources/META-INF/persistence.xml">
+        <packages>
+          <package value="com" />
+          <package value="com.example.mypack.entities" />
+        </packages>
+        <entities>
+          <entity value="com.example.mypack.entities.Client" />
+          <entity value="com.example.mypack.entities.Ville" />
+          <entity value="com.example.mypack.entities.Orders" />
+          <entity value="com.example.mypack.entities.Manager" />
+          <entity value="com.example.mypack.entities.Vehicle" />
+          <entity value="com.example.mypack.entities.Center" />
+          <entity value="com.example.mypack.entities.Chauffeur" />
+          <entity value="com.example.mypack.entities.Product" />
+          <entity value="com.example.mypack.entities.Admin" />
+        </entities>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>

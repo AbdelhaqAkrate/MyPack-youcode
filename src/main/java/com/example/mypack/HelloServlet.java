@@ -2,6 +2,8 @@ package com.example.mypack;
 
 import java.io.*;
 
+import com.example.mypack.util.DbConfig;
+import jakarta.persistence.EntityManager;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -14,6 +16,10 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        DbConfig dbConfig =  DbConfig.getInstance();
+        EntityManager em = dbConfig.getEntityManagerFactory().createEntityManager();
+        em.close();
+        dbConfig.getEntityManagerFactory().close();
         response.setContentType("text/html");
 
         // Hello
@@ -21,6 +27,7 @@ public class HelloServlet extends HttpServlet {
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
+
     }
 
     public void destroy() {

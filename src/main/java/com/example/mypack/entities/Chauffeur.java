@@ -2,14 +2,19 @@ package com.example.mypack.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+import java.util.Collection;
+
 @Entity
 @Table(name = "chauffeur")
-public class Chauffeur extends Person{
+public class Chauffeur extends Person implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idVehicle", referencedColumnName = "id")
     private Vehicle vehicle;
-
+    @OneToMany
+    @JoinColumn(name = "chauffeurId",referencedColumnName = "id")
+    private Collection<Orders> orders;
     public Integer getId()
     {
         return this.id;
@@ -49,5 +54,13 @@ public class Chauffeur extends Person{
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+    }
+
+    public Collection<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Collection<Orders> orders) {
+        this.orders = orders;
     }
 }
